@@ -11,6 +11,10 @@ module.exports = {
       {
         test: /\.vue$/,
         use: "vue-loader"
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
@@ -25,5 +29,8 @@ module.exports = {
     compress: true,
     port: 9000
   },
-  plugins: [new HtmlWebpackPlugin(), new VueLoaderPlugin()]
+  plugins: [
+    new HtmlWebpackPlugin({ template: "src/client/index.html" }),
+    new VueLoaderPlugin()
+  ]
 };
