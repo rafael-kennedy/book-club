@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
-const SALT_ROUNDS = process.env.SALT_ROUNDS || 13;
 const bcrypt = require("bcrypt");
+
+const SALT_ROUNDS = process.env.SALT_ROUNDS || 13;
 
 module.exports = function(app) {
   const db = app.get("db");

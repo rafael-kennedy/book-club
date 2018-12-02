@@ -1,5 +1,5 @@
 {
-  "name": "element-cards",
+  "name": "book-club",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,20 +7,25 @@
     "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Rafael Kennedy",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@vue/test-utils": "^1.0.0-beta.26",
     "babel-jest": "^23.6.0",
-    "dotenv": "^6.1.0",
+    "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "jest-environment-node": "^23.4.0",
-    "mongodb": "^3.1.10",
+    "jest-serializer-vue": "^2.0.2",
     "mongodb-memory-server": "^2.7.3",
-    "nedb": "^1.8.0",
     "prettier": "^1.15.2",
-    "schm": "^0.4.1",
     "supertest": "^3.3.0",
+    "vue-jest": "^3.0.1",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
@@ -28,8 +33,10 @@
   "dependencies": {
     "@polymer/lit-element": "^0.6.3",
     "bcrypt": "^3.0.2",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "helmet": "^3.15.0",
-    "jsonwebtoken": "^8.4.0"
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10"
   }
 }
