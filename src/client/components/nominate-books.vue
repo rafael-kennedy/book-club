@@ -3,104 +3,100 @@
     <BookDetails
       v-if="selectedBook"
       :book="selectedBook"
-      @close="selectedBook = null"
+      @close="selectedBook = null;"
     >
-      <template slot="actions">
-        <UiButton @click="nominate">
-          Nominate this book
-        </UiButton>
+      <template v-if="!nominations.includes(selectedBook)" slot="actions">
+        <UiButton @click="nominate"> Nominate this book </UiButton>
       </template>
     </BookDetails>
-    <UiModal
-      ref="suggestions-modal"
-      title="Search Results"
-    >
+    <UiModal ref="suggestions-modal" title="Search Results">
       <UiMenu
         :options="suggestions"
         class="suggestion-menu"
-        @select="triggerDetail"
+        :keys="{ label: 'title' }"
+        @select="triggerSuggestionDetail"
       >
-        <div
-          slot="option"
-          slot-scope="{option}"
-          class="suggestion-item"
-        >
-          <img
-            v-if="option.cover"
-            :src="option.cover"
-            height="60px"
-          >
-          <div class="suggestion-title">
-            {{ option.title }}
-          </div>
-          <div class="suggestion-author">
-            {{ option.author }}
-          </div>
-        </div>
+        <template slot="option" slot-scope="{ option }">
+          <BookDetailLineItem :book="option" />
+        </template>
       </UiMenu>
     </UiModal>
-    <div class="flex-row">
+    <div class="flex-row search-bar">
       <UiTextbox
         v-model="term"
         icon="search"
+        data-test="nominations-search-box"
         @keydown.enter="searchForBooks"
       />
-      <UiButton @click="searchForBooks">
-        search
-      </UiButton>
+      <UiButton @click="searchForBooks"> search </UiButton>
+    </div>
+    <h2>Books you've nominated</h2>
+    <div class="padded">
+      <BookDetailLineItem
+        v-for="book in nominations"
+        :key="book._id"
+        :book="book"
+        @click="triggerDetail(book);"
+      />
     </div>
   </div>
 </template>
 
 <script>
-  import api from '../api'
-  import BookDetails from "./book-details.vue";
-  export default {
-    name: "NominateBooks",
-    components: { BookDetails },
-    data() {
-      return {
-        term: '',
-        suggestions: [],
-        nominations: [],
-        selectedBook: null
+import api from "../api";
+import BookDetails from "./book-details.vue";
+import BookDetailLineItem from "./book-details-line-item.vue";
+
+export default {
+  name: "NominateBooks",
+  components: { BookDetailLineItem, BookDetails },
+  inject: ["alert"],
+  data() {
+    return {
+      term: "",
+      suggestions: [],
+      nominations: [],
+      selectedBook: null
+    };
+  },
+  async mounted() {
+    this.loadNominations();
+  },
+  methods: {
+    async loadNominations() {
+      this.nominations = await api.getMyNominations();
+    },
+    async searchForBooks() {
+      this.suggestions = await api.searchBooks(this.term);
+      if (this.suggestions.length) {
+        this.$refs["suggestions-modal"].open();
       }
     },
-    async mounted() {
-      this.nominations = await api.getMyNominations()
+    async triggerSuggestionDetail(bookSuggestion) {
+      this.$refs["suggestions-modal"].close();
+      this.selectedBook = await api.getBookDetails(bookSuggestion);
     },
-    methods: {
-      async searchForBooks() {
-        this.suggestions = await api.searchBooks(this.term);
-        if (this.suggestions.length) {
-          this.$refs['suggestions-modal'].open();
-        }
-      },
-      async triggerDetail(bookSuggestion) {
-        this.$refs['suggestions-modal'].close();
-        this.selectedBook = await api.getBookDetails(bookSuggestion);
-      },
-      async nominate() {
-        const result = await api.createNomination(this.selectedBook);
-        debugger;
-      }
+    async nominate() {
+      this.nominations = await api
+        .createNomination(this.selectedBook)
+        .catch(error => {
+          this.alert(error.message);
+        });
+      this.loadNominations();
+    },
+    triggerDetail(book) {
+      this.selectedBook = book;
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
- .suggestion-menu {
-   min-width: 100%
- }
-  .suggestion-item {
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr;
-    column-gap: 10px;
-  }
-  .suggestion-title {
-    grid-column: 1;
-  }
- .suggestion-title {
-   grid-column: 2;
- }
+.search-bar {
+  width: 90%;
+  justify-content: space-evenly;
+}
+.suggestion-menu {
+  min-width: 100%;
+}
 </style>

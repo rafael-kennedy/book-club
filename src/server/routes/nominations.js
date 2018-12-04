@@ -13,7 +13,7 @@ module.exports = function(app) {
       const book = req.body;
       const user = req.user;
 
-      const inserted = await nominations.insertOne({
+      await nominations.insertOne({
         ...book,
         nominatedBy: ObjectId(user._id)
       });

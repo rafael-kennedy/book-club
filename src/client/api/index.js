@@ -84,7 +84,11 @@ export class APIWrapper {
   // Books
 
   async createNomination(book) {
-    return this.sendAuthenticatedRequest("post", "nominations", book);
+    const result = await this.sendAuthenticatedRequest(
+      "post",
+      "nominations",
+      book
+    );
     return result.body;
   }
 

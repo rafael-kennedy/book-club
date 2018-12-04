@@ -7,4 +7,9 @@ describe("login component", () => {
     const wrapper = mountWithInjections(subject);
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("displays suggestions when searching", () => {
+    const wrapper = mountWithInjections(subject);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

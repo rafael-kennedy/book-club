@@ -17,15 +17,10 @@
         <Login v-model="user" />
       </template>
     </UiToolbar>
-    <UiTabs
-      v-if="user"
-      type="text"
-    >
-      <UiTab title="Nominate Books">
-        <NominateBooks />
-      </UiTab>
-      <UiTab title="Vote" />
-      <UiTab title="Upcoming Meetings" />
+    <UiTabs v-if="user" type="text">
+      <UiTab title="Nominate Books"> <NominateBooks /> </UiTab>
+      <UiTab title="Vote"> Sorry! I'm not a real app yet! </UiTab>
+      <UiTab title="Upcoming Meetings"> Sorry! I'm not a real app yet! </UiTab>
     </UiTabs>
     <div v-else>
       <h1>Welcome to a generic book club app!</h1>
@@ -34,51 +29,67 @@
   </div>
 </template>
 
-
 <script>
-  import Login from '../components/login.vue';
-  import NominateBooks from "../components/nominate-books.vue";
-  export default {
-    name: "App",
-    components: {
-      NominateBooks,
-      Login
-    },
-    data() {
-      return {
-        user: null
-      }
-    },
-    provide() {
-      return {alert: this.alert}
-    },
-    methods: {
-      alert(message) {
-        this.$refs.snackbox.createSnackbar({message})
-      }
+import Login from "../components/login.vue";
+import NominateBooks from "../components/nominate-books.vue";
+export default {
+  name: "App",
+  components: {
+    NominateBooks,
+    Login
+  },
+  data() {
+    return {
+      user: null
+    };
+  },
+  provide() {
+    return { alert: this.alert };
+  },
+  methods: {
+    alert(message) {
+      this.$refs.snackbox.createSnackbar({ message });
     }
-  };
+  }
+};
 </script>
 
-<!--GLOBAL STYLES-->
+<!-- GLOBAL STYLES -->
 <style>
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-  }
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-  .default-margin {
-    margin: 1em;
-  }
-  html {
-    min-height: 100vh;
-    min-width: 100vw;
-  }
-  body {
-    margin: 0;
-  }
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.default-margin {
+  margin: 1em;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+html {
+  min-height: 100vh;
+  min-width: 100vw;
+  font-size: 100%;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+body {
+  margin: 0;
+}
 </style>
