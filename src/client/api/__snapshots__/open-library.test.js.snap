@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`open library detail transform function returns formatted array of books 1`] = `
+Object {
+  "coverURL": "https://covers.openlibrary.org/w/id/7410930-L.jpg",
+  "description": "STEP INTO A UNIVERSE OF DARING ADVENTURE, THRILLING POWER, AND MULTIPLE LONDONS.
+<br/>
+<br/>Kell is one of the last travelers--magicians with a rare, coveted ability to travel between parallel universes connected by one magic city.
+<br/>
+<br/>There's Grey London, dirty and boring, without any magic, and with one mad king--George III. Red London, where life and magic are revered--and where Kell was raised alongside Rhy Maresh, the roguish heir to a flourishing empire. White London--a place where people fight to control magic and the magic fights back, draining the city to its very bones. And once upon a time, there was Black London. But no one speaks of that now.
+<br/>
+<br/>Officially, Kell is the Red Traveler, ambassador of the Maresh Empire, carrying the monthly correspondences between the royals of each London. Unofficially, Kell is a smuggler, servicing people willing to pay for even the smallest glimpses of a world they'll never see. It's a defiant hobby with dangerous consequences, which Kell is now seeing firsthand.
+<br/>
+<br/>Fleeing into Grey London, Kell runs into Delilah Bard, a cutpurse with lofty aspirations. She first robs him, then saves him from a deadly enemy, and finally forces Kell to spirit  her to another world for a proper adventure.
+<br/>
+<br/>Now perilous magic is afoot, and treachery lurks at every turn. To save all of the worlds, they'll first need to stay alive.
+<br/>
+<br/>This description comes from the publisher. *A Darker Shade of Magic* is the first book of the Shades of Magic trilogy.",
+}
+`;
+
+exports[`open library search transform function returns formatted array of books 1`] = `
+Array [
+  Object {
+    "author": "Victoria Schwab",
+    "cover": "https://covers.openlibrary.org/w/id/7410930-S.jpg",
+    "key": "/works/OL17332803W",
+    "published": 2015,
+    "title": "A darker shade of magic",
+  },
+  Object {
+    "author": "Richard Cowper",
+    "cover": null,
+    "key": "/works/OL5527173W",
+    "published": undefined,
+    "title": "Shades of Darkness Magic Spectacle and Oth",
+  },
+  Object {
+    "author": "Mary Robinette Kowal",
+    "cover": null,
+    "key": "/works/OL15571983W",
+    "published": 2010,
+    "title": "Shades of milk and honey",
+  },
+  Object {
+    "author": "Mary Robinette Kowal",
+    "cover": null,
+    "key": "/works/OL15421587W",
+    "published": 2010,
+    "title": "Shades of milk and honey",
+  },
+  Object {
+    "author": "Laurell K. Hamilton",
+    "cover": "https://covers.openlibrary.org/w/id/209769-S.jpg",
+    "key": "/works/OL461920W",
+    "published": 2002,
+    "title": "A Caress of Twilight",
+  },
+  Object {
+    "author": "William Frederick Pinchbeck",
+    "cover": null,
+    "key": "/works/OL11133171W",
+    "published": 1805,
+    "title": "Witchcraft, or, the art of fortune-telling unveiled",
+  },
+  Object {
+    "author": "Kasey Mackenzie",
+    "cover": null,
+    "key": "/works/OL16444092W",
+    "published": 2011,
+    "title": "Green-eyed envy",
+  },
+  Object {
+    "author": "Diego Martinez Montano",
+    "cover": "https://covers.openlibrary.org/w/id/5545047-S.jpg",
+    "key": "/works/OL13009267W",
+    "published": 2000,
+    "title": "Those wonderful moments of transitory unconsciousness",
+  },
+]
+`;
+
+exports[`open library transform function returns formatted array of books 1`] = `
+Array [
+  Object {
+    "author": "Victoria Schwab",
+    "cover": "https://covers.openlibrary.org/w/id/7410930-S.jpg",
+    "key": "/works/OL17332803W",
+    "published": 2015,
+    "title": "A darker shade of magic",
+  },
+  Object {
+    "author": "Richard Cowper",
+    "cover": null,
+    "key": "/works/OL5527173W",
+    "published": undefined,
+    "title": "Shades of Darkness Magic Spectacle and Oth",
+  },
+  Object {
+    "author": "Mary Robinette Kowal",
+    "cover": null,
+    "key": "/works/OL15571983W",
+    "published": 2010,
+    "title": "Shades of milk and honey",
+  },
+  Object {
+    "author": "Mary Robinette Kowal",
+    "cover": null,
+    "key": "/works/OL15421587W",
+    "published": 2010,
+    "title": "Shades of milk and honey",
+  },
+  Object {
+    "author": "Laurell K. Hamilton",
+    "cover": "https://covers.openlibrary.org/w/id/209769-S.jpg",
+    "key": "/works/OL461920W",
+    "published": 2002,
+    "title": "A Caress of Twilight",
+  },
+  Object {
+    "author": "William Frederick Pinchbeck",
+    "cover": null,
+    "key": "/works/OL11133171W",
+    "published": 1805,
+    "title": "Witchcraft, or, the art of fortune-telling unveiled",
+  },
+  Object {
+    "author": "Kasey Mackenzie",
+    "cover": null,
+    "key": "/works/OL16444092W",
+    "published": 2011,
+    "title": "Green-eyed envy",
+  },
+  Object {
+    "author": "Diego Martinez Montano",
+    "cover": "https://covers.openlibrary.org/w/id/5545047-S.jpg",
+    "key": "/works/OL13009267W",
+    "published": 2000,
+    "title": "Those wonderful moments of transitory unconsciousness",
+  },
+  Object {
+    "author": "Dan & Pauline Campanelli",
+    "cover": "https://covers.openlibrary.org/w/id/667084-S.jpg",
+    "key": "/works/OL8541178W",
+    "published": 2002,
+    "title": "Ancient Ways",
+  },
+]
+`;

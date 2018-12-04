@@ -71,6 +71,12 @@
         return this.email && this.password && this.password.length > 8;
       }
     },
+    mounted() {
+      // auto-login functionality
+      if (api.user) {
+        this.$emit('input', api.user)
+      }
+    },
     methods: {
       openModal() {
         this.$refs.modal.open();
@@ -89,7 +95,8 @@
 
       },
       logout() {
-        debugger;
+        api.logout();
+        this.$emit('input', null)
       },
       async register() {
         try {

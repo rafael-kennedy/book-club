@@ -2,24 +2,26 @@
 
 exports[`main app component displays tabs component when logged in 1`] = `
 <div>
-  <ui-snackbar-container-stub queue-snackbars="true" position="right"></ui-snackbar-container-stub>
-  <ui-toolbar-stub remove-brand-divider="" text-color="white" type="colored" background-color="primary">
+  <uisnackbarcontainer-stub queue-snackbars="true" position="right"></uisnackbarcontainer-stub>
+  <uitoolbar-stub remove-brand-divider="" text-color="white" type="colored" background-color="primary">
     Book Club App
-    <template></template></ui-toolbar-stub>
-  <ui-tabs-stub type="text">
-    <ui-tab-stub title="Nominate Books"></ui-tab-stub>
-    <ui-tab-stub title="Vote"></ui-tab-stub>
-    <ui-tab-stub title="Upcoming Meetings"></ui-tab-stub>
-  </ui-tabs-stub>
+    <template></template></uitoolbar-stub>
+  <uitabs-stub type="text">
+    <uitab-stub title="Nominate Books">
+      <nominatebooks-stub></nominatebooks-stub>
+    </uitab-stub>
+    <uitab-stub title="Vote"></uitab-stub>
+    <uitab-stub title="Upcoming Meetings"></uitab-stub>
+  </uitabs-stub>
 </div>
 `;
 
 exports[`main app component displays welcome message when not logged in 1`] = `
 <div>
-  <ui-snackbar-container-stub queue-snackbars="true" position="right"></ui-snackbar-container-stub>
-  <ui-toolbar-stub remove-brand-divider="" text-color="white" type="colored" background-color="primary">
+  <uisnackbarcontainer-stub queue-snackbars="true" position="right"></uisnackbarcontainer-stub>
+  <uitoolbar-stub remove-brand-divider="" text-color="white" type="colored" background-color="primary">
     Book Club App
-    <template></template></ui-toolbar-stub>
+    <template></template></uitoolbar-stub>
   <div>
     <h1>Welcome to a generic book club app!</h1>
     <p>Please log in by clicking the icon above to get started!</p>

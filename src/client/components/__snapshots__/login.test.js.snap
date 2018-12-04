@@ -2,26 +2,70 @@
 
 exports[`login component displays button when not logged in 1`] = `
 <div>
-  <ui-icon-button-stub icon="account_box" dropdown-position="bottom right" type="secondary"></ui-icon-button-stub>
-  <ui-modal-stub title="Login">
+  <uiiconbutton-stub icon="account_box" dropdown-position="bottom right" type="secondary"></uiiconbutton-stub>
+  <uimodal-stub title="Login">
     <div class="default-margin dropdown-reposition">
-      <ui-textbox-stub floating-label="" label="Email" placeholder="Enter your email address"></ui-textbox-stub>
-      <ui-textbox-stub floating-label="" label="Password" type="password" placeholder="Enter your password"></ui-textbox-stub>
-      <ui-button-stub disabled="true" color="primary">Login</ui-button-stub>
+      <uitextbox-stub floating-label="" label="Email" placeholder="Enter your email address"></uitextbox-stub>
+      <uitextbox-stub floating-label="" label="Password" type="password" placeholder="Enter your password"></uitextbox-stub>
+      <uibutton-stub disabled="true" color="primary">
+        Login
+      </uibutton-stub>
       Don't have an account yet?
-      <ui-button-stub disabled="true">Register</ui-button-stub>
+      <uibutton-stub disabled="true">
+        Register
+      </uibutton-stub>
     </div>
-  </ui-modal-stub>
+  </uimodal-stub>
 </div>
 `;
 
 exports[`login component displays logout button when logged in 1`] = `
 <div>
-  <ui-icon-button-stub icon="account_box" dropdown-position="bottom right" type="secondary"></ui-icon-button-stub>
-  <ui-modal-stub title="Login">
+  <uiiconbutton-stub icon="account_box" dropdown-position="bottom right" type="secondary"></uiiconbutton-stub>
+  <uimodal-stub title="Login">
     <div>
-      <ui-button-stub>Logout</ui-button-stub>
+      <uibutton-stub>
+        Logout
+      </uibutton-stub>
     </div>
-  </ui-modal-stub>
+  </uimodal-stub>
+</div>
+`;
+
+exports[`login component makes login call when user logs in 1`] = `
+<div>
+  <uiiconbutton-stub icon="account_box" dropdown-position="bottom right" type="secondary"></uiiconbutton-stub>
+  <uimodal-stub title="Login">
+    <div class="default-margin dropdown-reposition">
+      <uitextbox-stub floating-label="" label="Email" placeholder="Enter your email address"></uitextbox-stub>
+      <uitextbox-stub floating-label="" label="Password" type="password" placeholder="Enter your password"></uitextbox-stub>
+      <uibutton-stub disabled="true" color="primary">
+        Login
+      </uibutton-stub>
+      Don't have an account yet?
+      <uibutton-stub disabled="true">
+        Register
+      </uibutton-stub>
+    </div>
+  </uimodal-stub>
+</div>
+`;
+
+exports[`login component makes register when user tries to register 1`] = `
+<div>
+  <uiiconbutton-stub icon="account_box" dropdown-position="bottom right" type="secondary"></uiiconbutton-stub>
+  <uimodal-stub title="Login">
+    <div class="default-margin dropdown-reposition">
+      <uitextbox-stub floating-label="" label="Email" placeholder="Enter your email address"></uitextbox-stub>
+      <uitextbox-stub floating-label="" label="Password" type="password" placeholder="Enter your password"></uitextbox-stub>
+      <uibutton-stub disabled="true" color="primary">
+        Login
+      </uibutton-stub>
+      Don't have an account yet?
+      <uibutton-stub disabled="true">
+        Register
+      </uibutton-stub>
+    </div>
+  </uimodal-stub>
 </div>
 `;

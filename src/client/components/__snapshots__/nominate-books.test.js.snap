@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login component displays button when not logged in 1`] = `
+<div>
+  <uiiconbutton-stub icon="account_box" dropdown-position="bottom right" type="secondary"></uiiconbutton-stub>
+  <uimodal-stub title="Login">
+    <div class="default-margin dropdown-reposition">
+      <uitextbox-stub floating-label="" label="Email" placeholder="Enter your email address"></uitextbox-stub>
+      <uitextbox-stub floating-label="" label="Password" type="password" placeholder="Enter your password"></uitextbox-stub>
+      <uibutton-stub disabled="true" color="primary">
+        Login
+      </uibutton-stub>
+      Don't have an account yet?
+      <uibutton-stub disabled="true">
+        Register
+      </uibutton-stub>
+    </div>
+  </uimodal-stub>
+</div>
+`;

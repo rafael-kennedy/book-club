@@ -21,7 +21,9 @@
       v-if="user"
       type="text"
     >
-      <UiTab title="Nominate Books" />
+      <UiTab title="Nominate Books">
+        <NominateBooks />
+      </UiTab>
       <UiTab title="Vote" />
       <UiTab title="Upcoming Meetings" />
     </UiTabs>
@@ -35,9 +37,11 @@
 
 <script>
   import Login from '../components/login.vue';
+  import NominateBooks from "../components/nominate-books.vue";
   export default {
     name: "App",
     components: {
+      NominateBooks,
       Login
     },
     data() {
@@ -58,6 +62,10 @@
 
 <!--GLOBAL STYLES-->
 <style>
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
   .default-margin {
     margin: 1em;
   }

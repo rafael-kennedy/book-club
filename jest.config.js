@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   roots: [`<rootDir>/src`],
   testRegex: `.+\\.(spec|test)\\.js$`,
+  automock: false,
   moduleFileExtensions: [`js`, `jsx`, `json`, `node`, "vue"],
   moduleDirectories: [
     "node_modules",
