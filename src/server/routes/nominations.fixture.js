@@ -1,10 +1,50 @@
-module.exports = () => ({
+const { tokenizedUserId } = require("../../test/utils/fixture-tokens");
+const { ObjectId } = require("bson");
+
+module.exports.incomingPayload = () => ({
   title: "A darker shade of magic",
   key: "/works/OL17332803W",
   author: "Victoria Schwab",
   published: 2015,
   cover: "https://covers.openlibrary.org/w/id/7410930-S.jpg",
   description:
-    "STEP INTO A UNIVERSE OF DARING ADVENTURE, THRILLING POWER, AND MULTIPLE LONDONS.\r<br/>\r<br/>Kell is one of the last travelers--magicians with a rare, coveted ability to travel between parallel universes connected by one magic city.\r<br/>\r<br/>There's Grey London, dirty and boring, without any magic, and with one mad king--George III. Red London, where life and magic are revered--and where Kell was raised alongside Rhy Maresh, the roguish heir to a flourishing empire. White London--a place where people fight to control magic and the magic fights back, draining the city to its very bones. And once upon a time, there was Black London. But no one speaks of that now.\r<br/>\r<br/>Officially, Kell is the Red Traveler, ambassador of the Maresh Empire, carrying the monthly correspondences between the royals of each London. Unofficially, Kell is a smuggler, servicing people willing to pay for even the smallest glimpses of a world they'll never see. It's a defiant hobby with dangerous consequences, which Kell is now seeing firsthand.\r<br/>\r<br/>Fleeing into Grey London, Kell runs into Delilah Bard, a cutpurse with lofty aspirations. She first robs him, then saves him from a deadly enemy, and finally forces Kell to spirit  her to another world for a proper adventure.\r<br/>\r<br/>Now perilous magic is afoot, and treachery lurks at every turn. To save all of the worlds, they'll first need to stay alive.\r<br/>\r<br/>This description comes from the publisher. *A Darker Shade of Magic* is the first book of the Shades of Magic trilogy.",
+    "STEP INTO A UNIVERSE OF DARING ADVENTURE, THRILLING POWER, AND MULTIPLE LONDONS.",
   coverURL: "https://covers.openlibrary.org/w/id/7410930-L.jpg"
 });
+
+module.exports.seedData = () => [
+  {
+    _id: ObjectId("5c06edc72ca07777df1dff64"),
+    title: "One Shot",
+    key: "/works/OL52953W",
+    author: "Lee Child",
+    published: 2005,
+    cover: "https://covers.openlibrary.org/w/id/240050-S.jpg",
+    description: "Six shots.  and cunning—and then beat him shot for shot.",
+    coverURL: "https://covers.openlibrary.org/w/id/240050-L.jpg",
+    nominatedBy: ObjectId(tokenizedUserId)
+  },
+  {
+    _id: ObjectId("5c06f1ef004799790f896d33"),
+    title: "Time Out Madrid",
+    key: "/works/OL7971169W",
+    author: "Time Out",
+    published: 2004,
+    cover: "https://covers.openlibrary.org/w/id/951934-S.jpg",
+    description: "No description provided",
+    coverURL: "https://covers.openlibrary.org/w/id/951934-L.jpg",
+    nominatedBy: ObjectId(tokenizedUserId)
+  },
+  {
+    _id: ObjectId("5c06f62d1739f87b9e8ffd1c"),
+    title: "Time Enough for Love",
+    key: "/works/OL59694W",
+    author: "Robert A. Heinlein",
+    published: 1973,
+    cover: "https://covers.openlibrary.org/w/id/6569996-S.jpg",
+    description:
+      "Heinlein brought back Lazarus Long (his almost immortal) and covered parts of his life. It is one of Heinlein's best life, love, immortality and death.",
+    coverURL: "https://covers.openlibrary.org/w/id/6569996-L.jpg",
+    nominatedBy: ObjectId("5c05e8a02cfef52e5b197fbb")
+  }
+];

@@ -84,12 +84,18 @@ export class APIWrapper {
   // Books
 
   async createNomination(book) {
-    // return this.sendAuthenticatedRequest("post", "nominations", book);
-    const result = await request
-      .post(this.getUrl() + "nominations")
-      .set("Authorization", "Bearer " + this.token)
-      .set("accept", "json")
-      .send(book);
+    return this.sendAuthenticatedRequest("post", "nominations", book);
+    return result.body;
+  }
+
+  async getMyNominations() {
+    const result = await this.sendAuthenticatedRequest(
+      "get",
+      "nominations"
+    ).query({
+      creator: "me"
+    });
+    debugger;
     return result.body;
   }
 

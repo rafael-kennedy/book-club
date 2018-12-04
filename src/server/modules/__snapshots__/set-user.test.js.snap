@@ -2,7 +2,7 @@
 
 exports[`set user method sets user on correctly signed token 1`] = `
 Object {
-  "_id": "1",
+  "_id": "5c05e8a02cfef52e5b197fb5",
   "email": "test@test.com",
 }
 `;

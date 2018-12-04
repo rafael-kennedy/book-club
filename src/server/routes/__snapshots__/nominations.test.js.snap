@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nominations get route admin can fetch all nominations 1`] = `
+Array [
+  Object {
+    "_id": "5c06edc72ca07777df1dff64",
+    "author": "Lee Child",
+    "cover": "https://covers.openlibrary.org/w/id/240050-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/240050-L.jpg",
+    "description": "Six shots.  and cunning—and then beat him shot for shot.",
+    "key": "/works/OL52953W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2005,
+    "title": "One Shot",
+  },
+  Object {
+    "_id": "5c06f1ef004799790f896d33",
+    "author": "Time Out",
+    "cover": "https://covers.openlibrary.org/w/id/951934-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/951934-L.jpg",
+    "description": "No description provided",
+    "key": "/works/OL7971169W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2004,
+    "title": "Time Out Madrid",
+  },
+  Object {
+    "_id": "5c06f62d1739f87b9e8ffd1c",
+    "author": "Robert A. Heinlein",
+    "cover": "https://covers.openlibrary.org/w/id/6569996-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/6569996-L.jpg",
+    "description": "Heinlein brought back Lazarus Long (his almost immortal) and covered parts of his life. It is one of Heinlein's best life, love, immortality and death.",
+    "key": "/works/OL59694W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fbb",
+    "published": 1973,
+    "title": "Time Enough for Love",
+  },
+]
+`;
+
+exports[`nominations get route can fetch my nominations 1`] = `
+Array [
+  Object {
+    "_id": "5c06edc72ca07777df1dff64",
+    "author": "Lee Child",
+    "cover": "https://covers.openlibrary.org/w/id/240050-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/240050-L.jpg",
+    "description": "Six shots.  and cunning—and then beat him shot for shot.",
+    "key": "/works/OL52953W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2005,
+    "title": "One Shot",
+  },
+  Object {
+    "_id": "5c06f1ef004799790f896d33",
+    "author": "Time Out",
+    "cover": "https://covers.openlibrary.org/w/id/951934-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/951934-L.jpg",
+    "description": "No description provided",
+    "key": "/works/OL7971169W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2004,
+    "title": "Time Out Madrid",
+  },
+]
+`;
+
+exports[`nominations get route can only fetch regular user's own nominations 1`] = `
+Array [
+  Object {
+    "_id": "5c06edc72ca07777df1dff64",
+    "author": "Lee Child",
+    "cover": "https://covers.openlibrary.org/w/id/240050-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/240050-L.jpg",
+    "description": "Six shots.  and cunning—and then beat him shot for shot.",
+    "key": "/works/OL52953W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2005,
+    "title": "One Shot",
+  },
+  Object {
+    "_id": "5c06f1ef004799790f896d33",
+    "author": "Time Out",
+    "cover": "https://covers.openlibrary.org/w/id/951934-S.jpg",
+    "coverURL": "https://covers.openlibrary.org/w/id/951934-L.jpg",
+    "description": "No description provided",
+    "key": "/works/OL7971169W",
+    "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+    "published": 2004,
+    "title": "Time Out Madrid",
+  },
+]
+`;
+
+exports[`nominations post route can create new nomination 1`] = `
+Object {
+  "_id": Anything,
+  "author": "Victoria Schwab",
+  "cover": "https://covers.openlibrary.org/w/id/7410930-S.jpg",
+  "coverURL": "https://covers.openlibrary.org/w/id/7410930-L.jpg",
+  "description": "STEP INTO A UNIVERSE OF DARING ADVENTURE, THRILLING POWER, AND MULTIPLE LONDONS.",
+  "key": "/works/OL17332803W",
+  "nominatedBy": "5c05e8a02cfef52e5b197fb5",
+  "published": 2015,
+  "title": "A darker shade of magic",
+}
+`;

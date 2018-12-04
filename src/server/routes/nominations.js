@@ -13,16 +13,30 @@ module.exports = function(app) {
       const book = req.body;
       const user = req.user;
 
-      const inserted = await nominations
-        .insertOne({
-          ...book,
-          nominatedBy: ObjectId(user._id)
-        })
-        .catch(err => {
-          return res.status(500).send({ message: err.message });
-        });
-      debugger;
+      const inserted = await nominations.insertOne({
+        ...book,
+        nominatedBy: ObjectId(user._id)
+      });
+
       res.status(200).send({ message: "nomination created successfully" });
+    })
+  );
+
+  app.get(
+    "/nominations",
+    setUser,
+    app.errorCatcher(async (req, res) => {
+      const { user, query = {} } = req;
+      let nominationRecords;
+      if (!user.isAdmin || (query.creator && query.creator === "me")) {
+        nominationRecords = await nominations
+          .find({ nominatedBy: ObjectId(user._id) })
+          .toArray();
+      } else {
+        nominationRecords = await nominations.find({}).toArray();
+      }
+
+      res.status(200).send(nominationRecords);
     })
   );
 };

@@ -2,6 +2,12 @@ const mongo = require("mongodb");
 // TODO: Create indexes, including unique indexes on users and nominations
 module.exports = class DataStore {
   static async create(prefix = "ec") {
+    if (
+      process.env.NODE_ENV === "development" ||
+      process.env.NODE_ENV === "test"
+    ) {
+      console.log("mongo: ", process.env.MONGO_CONNECTION_STRING);
+    }
     const connection = await mongo.connect(
       process.env.MONGO_CONNECTION_STRING,
       { useNewUrlParser: true }

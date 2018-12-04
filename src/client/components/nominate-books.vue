@@ -66,8 +66,8 @@
         selectedBook: null
       }
     },
-    mounted() {
-
+    async mounted() {
+      this.nominations = await api.getMyNominations()
     },
     methods: {
       async searchForBooks() {
