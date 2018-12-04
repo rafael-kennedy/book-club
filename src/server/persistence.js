@@ -1,18 +1,17 @@
 const mongo = require("mongodb");
 
-const path = require("path");
-const crypto = require("crypto");
-
 module.exports = class DataStore {
   static async create(prefix = "ec") {
-    const connection = await mongo.connect(process.env.MONGO_CONNECTION_STRING);
+    const connection = await mongo.connect(
+      process.env.MONGO_CONNECTION_STRING,
+      { useNewUrlParser: true }
+    );
     const db = connection.db(prefix);
-    return new DataStore({ db, prefix });
+    return new DataStore({ db });
   }
 
-  constructor({ db, prefix }) {
+  constructor({ db }) {
     this.db = db;
-    this.prefix = prefix;
     this.mode = process.env.NODE_ENV === "test" ? "test" : "live";
     this.collections = new Proxy(
       {},

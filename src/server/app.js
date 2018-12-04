@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const errorCatcher = require("./modules/error-catcher");
 
 module.exports = async function startAppServer({
-  dbName = "",
+  dbName = "book-club",
   port = 3000,
   listen = true
 }) {
@@ -19,6 +19,23 @@ module.exports = async function startAppServer({
   app.use(express.json({ limit: "1mb", extended: true }));
   app.use(express.urlencoded({ extended: true }));
   app.use(helmet());
+
+  if (process.env.NODE_ENV === "development") {
+    app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      next();
+    });
+  }
+
+  // default to content-type JSON
+  app.use((req, res, next) => {
+    res.header("Content-Type", "application/json");
+    next();
+  });
 
   routes(app);
 

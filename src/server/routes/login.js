@@ -11,16 +11,18 @@ module.exports = function(app) {
     if (process.env.NODE_ENV !== "production") {
       const { email, password } = req.body;
       if (!email || !password) {
-        return res.status(400).send("Bad Request");
+        return res.status(400).send({ message: "Bad Request" });
       }
 
       if ([email, password].some(v => typeof v !== "string")) {
-        return res.status(400).send("Bad Request");
+        return res.status(400).send({ message: "Bad Request" });
       }
 
       const matchingUser = await users.findOne({ email });
       if (!matchingUser) {
-        return res.status(403).send("Your username or password is incorrect");
+        return res
+          .status(403)
+          .send({ message: "Your username or password is incorrect" });
       }
 
       const matchingPasswords = await bcrypt.compare(
@@ -29,10 +31,12 @@ module.exports = function(app) {
       );
 
       if (!matchingPasswords) {
-        return res.status(403).send("Your username or password is incorrect");
+        return res
+          .status(403)
+          .send({ message: "Your username or password is incorrect" });
       }
-
-      const token = jwt.sign(matchingUser, process.env.SECRET, {
+      const { hashedPassword, ...sanitizedUser } = matchingUser;
+      const token = jwt.sign(sanitizedUser, process.env.SECRET, {
         expiresIn: "7d"
       });
       return res.status(200).send({ token });

@@ -30,7 +30,9 @@ module.exports = function(app) {
       if (!email || !password) {
         return res
           .status(400)
-          .send("Bad Request: You must supply an email and password");
+          .send({
+            message: "Bad Request: You must supply an email and password"
+          });
       }
 
       assertValidPassword(app, password);

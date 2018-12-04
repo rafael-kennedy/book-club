@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "keen-ui": "^1.0.1",
+    "superagent": "^4.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.2"
   }
