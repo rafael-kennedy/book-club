@@ -1,5 +1,16 @@
 <template>
   <div>
+    <BookDetails
+      v-if="selectedBook"
+      :book="selectedBook"
+      @close="selectedBook = null"
+    >
+      <template slot="actions">
+        <UiButton @click="nominate">
+          Nominate this book
+        </UiButton>
+      </template>
+    </BookDetails>
     <UiModal
       ref="suggestions-modal"
       title="Search Results"
@@ -43,13 +54,16 @@
 
 <script>
   import api from '../api'
+  import BookDetails from "./book-details.vue";
   export default {
     name: "NominateBooks",
+    components: { BookDetails },
     data() {
       return {
         term: '',
         suggestions: [],
-        nominations: []
+        nominations: [],
+        selectedBook: null
       }
     },
     mounted() {
@@ -63,8 +77,11 @@
         }
       },
       async triggerDetail(bookSuggestion) {
-        debugger;
-        const details = await api.getBookDetails(bookSuggestion);
+        this.$refs['suggestions-modal'].close();
+        this.selectedBook = await api.getBookDetails(bookSuggestion);
+      },
+      async nominate() {
+        const result = await api.createNomination(this.selectedBook);
         debugger;
       }
     }

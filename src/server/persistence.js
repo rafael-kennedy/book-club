@@ -1,5 +1,5 @@
 const mongo = require("mongodb");
-
+// TODO: Create indexes, including unique indexes on users and nominations
 module.exports = class DataStore {
   static async create(prefix = "ec") {
     const connection = await mongo.connect(

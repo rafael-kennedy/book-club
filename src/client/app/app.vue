@@ -66,6 +66,10 @@
     display: flex;
     flex-direction: row;
   }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
   .default-margin {
     margin: 1em;
   }

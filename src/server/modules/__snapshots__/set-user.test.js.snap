@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`set user method sets user on correctly signed token 1`] = `
+Object {
+  "_id": "1",
+  "email": "test@test.com",
+}
+`;
+
+exports[`set user method sets user on correctly signed token 2`] = `Object {}`;
+
+exports[`set user method throws 403 on expired token 1`] = `
+Object {
+  "message": "Your token has expired. Please log in again",
+}
+`;
+
+exports[`set user method throws 403 on incorrectly signed token 1`] = `
+Object {
+  "message": "Your token is invalid. Please log in again",
+}
+`;
+
+exports[`set user method throws 403 on missing token 1`] = `
+Object {
+  "message": "You must include your bearer token in the Authorization header of the request",
+}
+`;

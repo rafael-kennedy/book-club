@@ -12,6 +12,18 @@ export class APIWrapper {
 
   // UTILITY METHODS
 
+  sendAuthenticatedRequest(method, path, payload) {
+    const url = this.getUrl() + path;
+    const call = request[method](url).set(
+      "Authorization",
+      "Bearer " + this.token
+    );
+    if (payload) {
+      call.send(payload);
+    }
+    return call;
+  }
+
   getUrl() {
     const root = new URL(window.location.href);
     root.port = this.port || "3000";
@@ -67,6 +79,18 @@ export class APIWrapper {
       .set("accept", "json");
 
     return this.login(email, password);
+  }
+
+  // Books
+
+  async createNomination(book) {
+    // return this.sendAuthenticatedRequest("post", "nominations", book);
+    const result = await request
+      .post(this.getUrl() + "nominations")
+      .set("Authorization", "Bearer " + this.token)
+      .set("accept", "json")
+      .send(book);
+    return result.body;
   }
 
   // THIRD PARTY APIS

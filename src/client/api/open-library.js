@@ -12,6 +12,7 @@ function transformBookSearch(bookData) {
 }
 
 export function transformBookDetail(bookData) {
+  //TODO: Figure out why the OL API is flaky about including descriptions
   const description =
     bookData.description && bookData.description && bookData.description.value;
   const descriptionHTML = description
@@ -26,7 +27,7 @@ export function transformBookDetail(bookData) {
 }
 
 export function transformOpenLibraryData(booksPayload) {
-  // TODO: Need to deduplicate books somehow, as there's lots of duplicate books
+  // TODO: Need to deduplicate books somehow, perhaps concatted title + author?
   const booksArray = booksPayload.docs || [];
   return booksArray.map(transformBookSearch).slice(0, 8);
 }
