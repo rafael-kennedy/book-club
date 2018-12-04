@@ -1,35 +1,53 @@
 <template>
   <div>
-    <ui-icon-button
+    <UiIconButton
       icon="account_box"
       dropdown-position="bottom right"
-      @click="openModal"
       type="secondary"
+      @click="openModal"
+    />
+    <UiModal
+      ref="modal"
+      title="Login"
     >
-    </ui-icon-button>
-    <ui-modal ref="modal" title="Login">
-      <div v-if="!value" class="default-margin dropdown-reposition">
-        <ui-textbox
+      <div
+        v-if="!value"
+        class="default-margin dropdown-reposition"
+      >
+        <UiTextbox
+          v-model="email"
           floating-label
           label="Email"
           placeholder="Enter your email address"
-          v-model="email"
-        ></ui-textbox>
-        <ui-textbox
+        />
+        <UiTextbox
+          v-model="password"
           floating-label
           label="Password"
           type="password"
           placeholder="Enter your password"
-          v-model="password"
-        ></ui-textbox>
-        <ui-button @click="login" :disabled="!formValid" color="primary">Login</ui-button>
+        />
+        <UiButton
+          :disabled="!formValid"
+          color="primary"
+          @click="login"
+        >
+          Login
+        </UiButton>
         Don't have an account yet?
-        <ui-button @click="register" :disabled="!formValid">Register</ui-button>
+        <UiButton
+          :disabled="!formValid"
+          @click="register"
+        >
+          Register
+        </UiButton>
       </div>
       <div v-else>
-        <ui-button @click="logout">Logout</ui-button>
+        <UiButton @click="logout">
+          Logout
+        </UiButton>
       </div>
-    </ui-modal>
+    </UiModal>
   </div>
 </template>
 
@@ -37,7 +55,7 @@
   import api from '../api'
 
   export default {
-    name: "login",
+    name: "Login",
     props: {
       value: {type: Object}
     },

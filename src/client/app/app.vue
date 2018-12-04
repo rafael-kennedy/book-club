@@ -1,9 +1,11 @@
 <template>
   <div>
-    <ui-snackbar-container ref="snackbox" :queue-snackbars="true" position="right">
-
-    </ui-snackbar-container>
-    <ui-toolbar
+    <UiSnackbarContainer
+      ref="snackbox"
+      :queue-snackbars="true"
+      position="right"
+    />
+    <UiToolbar
       remove-brand-divider
       text-color="white"
       type="colored"
@@ -12,37 +14,29 @@
     >
       Book Club App
       <template slot="actions">
-        <login v-model="user"></login>
+        <Login v-model="user" />
       </template>
-    </ui-toolbar>
-    <ui-tabs
-      type="text"
+    </UiToolbar>
+    <UiTabs
       v-if="user"
+      type="text"
     >
-      <ui-tab title="Nominate Books">
-
-      </ui-tab>
-      <ui-tab title="Vote">
-
-      </ui-tab>
-      <ui-tab title="Upcoming Meetings">
-
-      </ui-tab>
-    </ui-tabs>
+      <UiTab title="Nominate Books" />
+      <UiTab title="Vote" />
+      <UiTab title="Upcoming Meetings" />
+    </UiTabs>
     <div v-else>
       <h1>Welcome to a generic book club app!</h1>
       <p>Please log in by clicking the icon above to get started!</p>
-
     </div>
   </div>
-
 </template>
 
 
 <script>
   import Login from '../components/login.vue';
   export default {
-    name: "app",
+    name: "App",
     components: {
       Login
     },

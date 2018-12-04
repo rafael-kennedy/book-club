@@ -16,4 +16,18 @@ describe("login component", () => {
     });
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("makes login call when user logs in", () => {
+    const wrapper = mountWithInjections(subject, {
+      propsData: { value: null }
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("makes register when user tries to register", () => {
+    const wrapper = mountWithInjections(subject, {
+      propsData: { value: null }
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
