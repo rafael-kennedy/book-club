@@ -42,6 +42,10 @@ module.exports = async function startAppServer({
 
   routes(app);
 
+  app.get("/", (req, res) => {
+    res.status(200).send("Hey");
+  });
+
   if (!listen) {
     console.log("app is not listening");
     return app;
