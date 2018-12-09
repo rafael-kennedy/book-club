@@ -1,9 +1,13 @@
 version: '3'
 services:
-  newweb:
+  backend:
     build: .
     ports:
       - "3000:3000"
+      - 5533:5533
+    expose:
+      - 5533
+      - 3000
     links:
       - mongodb
     depends_on:
@@ -11,6 +15,20 @@ services:
     environment:
       - NODE_ENV=development
       - MONGO_CONNECTION_STRING=mongodb://mongodb:27017
+    command: npm run start:dev-server
+  frontend:
+    image: node:latest
+    container_name: "dev-frontend"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/code
+    ports:
+      - 9000:9000
+    expose:
+      - 9000
+    working_dir: /code
+    command: npm run docker-dev
   mongodb:
     image: mongo:latest
     container_name: "mongodb"
